@@ -55,24 +55,26 @@
             </span>
           </div>
           <div class="modal-content join-div">
-            <form action="/member/join" method="post">
+            <form action="/member/join" method="post" id="join-form">
               <div>
                 <p class="common-text">이름</p>
                 <div class="id-div">
                   <input type="text" class="input" id="memName" name="memName">
                 </div>
+                <p id="name_p" class="validate-p invalid"></p>
               </div>           
               <div>
                 <p class="common-text">아이디</p>
                 <div class="id-div">
-                  <input type="text" class="input" id="memId" name="memId">
+                  <input type="text" class="input" id="memId" name="memId" onkeyup="addDisabled()">
                   <button type="button" class="btn" onclick="checkDuplicate()">중복검사</button> 
                 </div>
-                <p id="id_p" class="validate-p" ></p>
+                <p id="id_p" class="validate-p"></p>
               </div>           
               <div>
                 <p class="common-text">비밀번호</p>
                 <input type="password" class="input" id="memPw" name="memPw">
+                <p id="pw_p" class="validate-p invalid"></p>              
               </div>
                 <div>
                   <p class="common-text">비밀번호 확인</p>
@@ -86,11 +88,12 @@
                   <input type="text" class="input" id="tel2" name="memTel2">
                   <input type="text" class="input" id="tel3" name="memTel3">
                 </div>
+                <p id="tel_p" class="validate-p invalid"></p>
               </div>
               <div>
                 <p class="common-text">주소</p>
                 <div class="addr">
-                  <input type="text" class="input" id="memAddr" name="memAddr">
+                  <input type="text" class="input" id="memAddr" name="memAddr" readonly>
                   <button type="button" class="btn btn-small">검색</button>
                 </div>
                 <input type="text" class="input" id="addrDetail" name="addrDetail">
@@ -100,7 +103,12 @@
                 <input type="radio" name="gender" value="male" id="male"><label for="male">남성</label>
                 <input type="radio" name="gender" value="female" id="female"><label for="female">여성</label>
               </div>
-              <button type="button" class="btn btn-large" onclick="regMem()">회원가입</button>
+              <button 
+                type="button" 
+                id="join-btn" 
+                class="btn btn-large" 
+                disabled 
+                onclick="join()">회원가입</button>
             </form>
           </div>
         </div>

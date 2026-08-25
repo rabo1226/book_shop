@@ -3,24 +3,13 @@
 
 // 회원가입 후 메인페이지(도서 목록 페이지)로 이동
 
-
-//회원가입
-const regMem = () => {
-  const result = confirm('회원가입을 진행합니다.')
-  isValidData();
-  if(isValidData()){
-    console.log('회원가입 실행');
-    document.querySelector('form').submit();
-  }
-}
-
 //id 중복검사  결과 p태그 디자인 변경하는 함수
 const set_id_p = (result, msg) => {
   //p태그 선택
   const id_p = document.querySelector('#id_p');
   
   id_p.textContent = msg;
-  
+
   //유효한 결과
   if(result === 'valid'){
     id_p.classList.remove('invalid');
@@ -33,13 +22,17 @@ const set_id_p = (result, msg) => {
 }
 
 //id중복확인 기능 + 유효성
+//중복검사 버튼 클릭 시 실행 함수
 const checkDuplicate = () => {
   //입력한 id
-  const memId = document.querySelector('#memId').value;
+  const memId = document.querySelector('#join-modal input[name="memId"]').value;
+  
+  // 2) id는 4~20글자 유효성 검사 실패 시
+  const idRegex = /^[A-Za-z0-9]{4,20}$/;
 
   //id입력 여부 확인
-  if(memId === ''){
-    set_id_p('invalid', 'ID를 입력하지 않았습니다.');
+  if(!idRegex.test(memId)){
+    set_id_p('invalid', 'ID는 4~20글자 영문, 숫자만 가능합니다.');
     return;
   }
 
@@ -53,7 +46,10 @@ const checkDuplicate = () => {
       return;
     }
     else{
-      set_id_p('valid', '사용 가능한 ID입니다.')
+      set_id_p('valid', '사용 가능한 ID입니다.');
+      //회원가입 버튼 활성화(discableed 속성 제거)
+      const join_btn = document.querySelector('#join-btn');
+      join_btn.removeAttribute('disabled');
     }
   })
   .catch((error) => {
@@ -64,48 +60,67 @@ const checkDuplicate = () => {
 
 }
 
+//회원가입 모달창에서 id 변경 시 실행되는 함수
+const addDisabled = () => {
+ document.querySelector('#join-btn').setAttribute('disabled', '');
+ 
+ //id 유효성 검사 p태그도 초기화
+  document.querySelector('#id_p').textContent = '';
+}
 
-//유효성 검사
-// 회원가입 유효성 검사 기능 추가
 
 // 4) 연락처 유효성
 // 위 유효성 검사가 맞지 않으면 input 태그 아래 문구를 추가해서 안내
-const isValidData = () => {
-  let data = true;
+const joinValidData = () => {
+  //유효성 검사 결과 저장 변수
+  let result = true;
   //모든 정보 필수 입력(주소 제외)
-  const memId = document.querySelector('#memId').value;
-  const memPw = document.querySelector('#memPw').value;
+  const memPw = document.querySelector('#join-modal input[name="memPw"]' ).value;
   const reMemPw = document.querySelector('#reMemPw').value;
-  const tel1 = document.querySelector('#tel1').value;
-  const tel2 = document.querySelector('#tel2').value;
-  const tel3 = document.querySelector('#tel3').value;
-  const memAddr = document.querySelector('#memAddr').value;
-  const addrDetail = document.querySelector('#addrDetail').value;
-  const gender = document.querySelector('input[name="gender"]:checked').value;
-  
+  const memName = document.querySelector('#join-modal input[name="memName"]').value;
+  const tel1 = document.querySelector('#join-modal input[name="memTel1"]').value;
+  const tel2 = document.querySelector('#join-modal input[name="memTel2"]').value;
+  const tel3 = document.querySelector('#join-modal input[name="memTel3"]').value;
 
-  // 1) 주소를 제외한 모든 정보는 필수 입력 (다음 주소록 api)
-  if(memId === ''|| memPw === '' || reMemPw == '' || tel2 === '' || tel3 === '' || gender === ''){
-    alert('미입력 정보가 있습니다. (주소 제외)');
-    data = false;
-  }
+  //완성된 연락처
+  const memTel = `${tel1}-${tel2}-${tel3}`;
 
-  // 2) id는 4~20글자
-  const idRegex = /^.{6,20}$/;
-  if(!idRegex.test(memId)){
-    data = false;
-  }
-  
-  // 3) 비번은 6~20글자 숫자+영문 조합만 가능
+  // 3) 비번은 6~20글자 숫자+영문 조합만 가능 유효성 검사 실패 시
   const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,20}$/;
   if(!pwRegex.test(memPw)){
-    data = false;
+    document.querySelector('#pw_p').textContent = '6~20글자, 영문+숫자 조합만 가능합니다.';
   }
 
-  // 5) 비번 일치
+  // 5) 입력한 두 비번 일치 실패 시
   if(memPw !== reMemPw){
-    data = false;
+    document.querySelector('#pw_p').textContent = '입력한 비밀번호가 일치하지 않습니다.'; 
   }
 
-  return data;
+  //이름 유효성 검사 실패 시
+  const nameRegex = /^[가-힣]{2,10}$/;
+  if(!nameRegex.test(memName)){
+    document.querySelector('#name_p').textContent = '2~10글자, 한글만 가능합니다.'; 
+  }
+
+  //연락처 정규식 유효성 검사 실패 시
+  const telRegex = /^01[016789]-?\d{3,4}-?\d{4}$/;
+  if(!telRegex.test(memTel)){
+    document.querySelector('#tel_p').textContent = '연락처 정보가 정확하지 않습니다.'; 
+  }
+
+  return result;
+}
+
+//회원가입 버튼 클릭 시 실행함수
+//유효성 검사 및 회원가입 요청 
+//유효성 검사 성공 시 리턴 ture;
+const join = () => {
+  //유효성 검사
+  const validate_result = joinValidData();
+  console.log(validate_result);
+  if(validate_result){
+    console.log('회원가입 실행');
+    //submit
+    //document.querySelector('#join-form').submit();
+  }
 }
