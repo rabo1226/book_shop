@@ -1,0 +1,20 @@
+.admin-container{
+  width: 100%;
+}
+
+
+.admin-header{
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.admin-main{
+  display: flex;
+}
+.admin-side{
+  width: 20%;
+  border-right: 1px solid lightgray;
+}
+.admin-content{
+  width: 80%;
+}

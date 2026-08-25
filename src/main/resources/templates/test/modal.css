@@ -1,0 +1,72 @@
+boby{
+  height: 100vh;
+}
+
+.modal-overlay{
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  
+  /* 숨기기 , 애니메이션 미적용 */
+  visibility:hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  /* 애니메이션 동작 */
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+}
+.modal-small{width: 300px;}
+.modal-nomal{width: 500px;}
+.modal-large{width: 700px;}
+
+.modal-box{
+  border-radius: 6px;
+  background-color: white;
+  padding: 16px;
+  margin-top: 100px;
+  box-shadow: 0 10px 30px rga(0, 0, 0, 0.2);
+
+  /* 초기상태 : 작고 위로 살짝 이동 */
+  transform: translateY(-20px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal-box{
+  transform: translateY(0px) scale(1);
+  opacity: 1;
+}
+
+.modal-header{
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content{
+  border-top: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  padding: 12px 0px;
+}
+
+.modal-footer{
+
+}
+
+.close-x{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.active{
+  visibility: visible;
+  opacity: 1;
+}

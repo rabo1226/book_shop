@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/layouts/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/layouts/common.css">
+  <link rel="stylesheet" href="/css/layouts/user_layouts.css">
+  <link rel="stylesheet" href="/css/layouts/user_header.css">
+</head>
+  <th:block layout:fragment="content_css"></th:block>
+</head>
+<body style="overflow-x: hidden;">
+  <div class="user-container">
+    <div class="user-header">
+      <th:block th:replace="~{layouts/user_header::headerFragment}"></th:block>
+    </div>
+    <div class="user-content">
+      <th:block layout:fragment="content"></th:block>
+    </div>
+  </div>
+  
+  <script src="/js/layouts/common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+  <script src="/js/layouts/user_header.js"></script>
+  <th:block layout:fragment="content_js"></th:block>
+</body>
+</html>

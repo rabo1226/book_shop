@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/user_layout}">
+
+<!--이 곳에 link 태그로 css파일 연결하는 코드 작성-->
+<th:block layout:fragment="content_css">
+   <link rel="stylesheet" href="/css/pages/book/book_list.css">
+</th:block>
+
+<!--아래 block에 html 코드 작성-->
+<th:block layout:fragment="content">
+  <div>
+    <video autoplay muted loop playsinline>
+      <source src="/images/main_hero.mp4" type="video/mp4">
+    </video>
+  </div>
+</th:block>
+
+<!--이 곳에 script 태그로 js파일 연결하는 코드 작성-->
+<th:block layout:fragment="content_js">
+</th:block>
+</html>

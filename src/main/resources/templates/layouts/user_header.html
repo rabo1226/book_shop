@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+  <th:block th:fragment="headerFragment">
+    <div class="header-container">
+      <ul class="user-menu">
+        <li>
+           <span onclick="openModal('#login-modal')" class="click">Login</sapn>
+        </li>
+        <li>
+          <span onclick="openModal('#join-modal')" class="click">Join</span>
+        </li>
+      </ul>
+      <div class="menu-div">
+        <div class="logo-div">
+          <img src="/images/logo_ver.png" class="logo">
+        </div>
+        <ul class="menu">
+          <li><a href="">전체도서</a></li>
+          <li><a href="">최신도서</a></li>
+          <li><a href="">IT/인터넷</a></li>
+          <li><a href="">소설/에세이</a></li>
+          <li><a href="">자기계발</a></li>
+        </ul>
+      </div>
+
+
+      <!-- 로그인 모달창 -->
+      <div class="modal-overlay" id="login-modal">
+        <div class="modal-box modal-small">
+          <div class="modal-header">
+            <h3 class="logo-degin">bookShop</h3>
+            <span class="close-x" onclick="closeModal('#login-modal')">
+              <i class="bi bi-x-lg"></i>
+            </span>
+          </div>
+          <div class="modal-content">
+            <p class="common-text">아이디</p>
+            <input type="text" class="input">
+            <p class="common-text">비밀번호</p>
+            <input type="password" class="input">
+          </div>
+            <button type="button" class="btn btn-large">로그인</button>
+        </div>
+      </div>
+      
+      <!-- 회원가입 모달창 -->
+      <div class="modal-overlay" id="join-modal">
+        <div class="modal-box modal-small">
+          <div class="modal-header">
+            <h3 class="logo-degin">bookShop</h3>
+            <span class="close-x" onclick="closeModal('#join-modal')">
+              <i class="bi bi-x-lg"></i>
+            </span>
+          </div>
+          <div class="modal-content join-div">
+            <form action="/member/join" method="post">
+              <div>
+                <p class="common-text">이름</p>
+                <div class="id-div">
+                  <input type="text" class="input" id="memName" name="memName">
+                </div>
+              </div>           
+              <div>
+                <p class="common-text">아이디</p>
+                <div class="id-div">
+                  <input type="text" class="input" id="memId" name="memId">
+                  <button type="button" class="btn" onclick="checkDuplicate()">중복검사</button> 
+                </div>
+                <p id="id_p" class="validate-p" ></p>
+              </div>           
+              <div>
+                <p class="common-text">비밀번호</p>
+                <input type="password" class="input" id="memPw" name="memPw">
+              </div>
+                <div>
+                  <p class="common-text">비밀번호 확인</p>
+                  <input type="password" class="input" id="reMemPw">
+                  <p></p>
+                </div>
+              <div>
+                <p class="common-text">연락처</p>
+                <div class="join-tel-div">
+                  <input type="text" class="input" value="010" readonly id="tel1" name="memTel1">
+                  <input type="text" class="input" id="tel2" name="memTel2">
+                  <input type="text" class="input" id="tel3" name="memTel3">
+                </div>
+              </div>
+              <div>
+                <p class="common-text">주소</p>
+                <div class="addr">
+                  <input type="text" class="input" id="memAddr" name="memAddr">
+                  <button type="button" class="btn btn-small">검색</button>
+                </div>
+                <input type="text" class="input" id="addrDetail" name="addrDetail">
+              </div>
+              <div>
+                <p class="common-text">성별</p>
+                <input type="radio" name="gender" value="male" id="male"><label for="male">남성</label>
+                <input type="radio" name="gender" value="female" id="female"><label for="female">여성</label>
+              </div>
+              <button type="button" class="btn btn-large" onclick="regMem()">회원가입</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</th:block>
+
+</html>

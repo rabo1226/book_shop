@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+*{
+  font-family: 'A2z';
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* --------------모달 디자인-------------- */
+.modal-overlay{
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  
+  /* 숨기기 , 애니메이션 미적용 */
+  visibility:hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  /* 애니메이션 동작 */
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+}
+.modal-small{width: 300px;}
+.modal-nomal{width: 500px;}
+.modal-large{width: 700px;}
+
+.modal-box{
+  border-radius: 6px;
+  background-color: white;
+  padding: 16px;
+  margin-top: 100px;
+  box-shadow: 0 10px 30px rga(0, 0, 0, 0.2);
+
+  /* 초기상태 : 작고 위로 살짝 이동 */
+  transform: translateY(-20px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal-box{
+  transform: translateY(0px) scale(1);
+  opacity: 1;
+}
+
+.modal-header{
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content{
+  border-top: 1px solid rgb(230, 230, 230);
+  padding: 12px 0px;
+}
+
+
+.close-x{
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(255, 165, 0);
+}
+
+.close-x:active{
+  color: black;
+}
+
+.active{
+  visibility: visible;
+  opacity: 1;
+}
+/* --------------모달 디자인-------------- */
+
+
+/* --------------대표 폰트 디자인-------------- */
+.logo-degin{
+  color: orange;
+  font-weight: 800px;
+  margin-bottom: 8px;
+}
+
+.common-text{
+  color: gray;
+  margin-bottom: 3px;
+}
+
+/* --------------버튼 디자인-------------- */
+.btn{
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 0px;
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+.btn:active{
+  background-color: rgb(245, 155, 0);
+}
+
+.btn-small{
+  width: 20%;
+}
+.btn-nomal{
+  width: 50%;
+}
+.btn-large{
+  width: 100%;
+}
+ 
+/* --------------input(form요소들 디자인 통합(input, select, buttom등)) 디자인-------------- */
+.input{
+  width: 100%;
+  /* border: 1px solid orange; */
+  border: none;
+  border-bottom: 1px solid rgb(255, 165, 0, 0.7);
+  /* border-radius: 4px; */
+  /* border-bottom: 2px solid orange; */
+  /* margin-bottom: 10px; */
+}
+
+.input:focus{
+  border-color: rgb(255, 165, 0);
+  outline: none;
+}
+
+/* --------------유효성 검사-------------- */
+.validate-p {font-size: 0.7rem;}
+
+.invalid{color: rgb(220, 53, 69);}
+
+.valid{color: rgb(25, 135, 84);}

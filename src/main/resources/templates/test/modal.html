@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="modal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <h1>모달 연습 페이지</h1>
+  
+  <button type="button" onclick="openModal('#login-modal')">로그인 모달 오픈</button>
+  <button type="button" onclick="openModal('#join-modal')">가입 모달 오픈</button>
+
+  <!-- 로그인 모달창 -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal-box modal-small">
+      <div class="modal-header">
+        <h3>로그인</h3>
+        <span class="close-x" onclick="closeModal('#login-modal')">
+          <i class="bi bi-x-lg"></i>
+        </span>
+      </div>
+      <div class="modal-content">
+        모달내용
+      </div>
+      <div class="modal-footer">모달푸터</div>
+    </div>
+  </div>
+
+  <!-- 회원가입 모달창 -->
+  <div class="modal-overlay" id="join-modal">
+    <div class="modal-box modal-small">
+      <div class="modal-header">
+        <h3>회원가입</h3>
+        <span class="close-x" onclick="closeModal('#join-modal')">
+          <i class="bi bi-x-lg"></i>
+        </span>
+      </div>
+      <div class="modal-content">
+        모달내용
+      </div>
+      <div class="modal-footer">모달푸터</div>
+    </div>
+  </div>
+
+  <script src="modal.js"></script>
+</body>
+</html>
