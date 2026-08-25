@@ -124,3 +124,21 @@ const join = () => {
     //document.querySelector('#join-form').submit();
   }
 }
+
+// const searchPostCode1 = () => {
+//   new kakao.Postcode({
+//     oncomplete: function(data) {
+//       //주소를 선택하면 주소 input태그에 선택한 주소 정보를 들어가야 한다.
+//      document.querySelector('#memAddr').value = data.roadAddress;
+//     }
+//   }).open();
+// }
+
+const searchPostCode = () => {
+   new kakao.Postcode({
+    oncomplete: function(data) {
+      //주소값을 data에 저장한다.
+      document.querySelector('input[name="memAddr"]').value = data.roadAddress; 
+    }
+   }).open();
+}

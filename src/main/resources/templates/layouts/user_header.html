@@ -93,8 +93,18 @@
               <div>
                 <p class="common-text">주소</p>
                 <div class="addr">
-                  <input type="text" class="input" id="memAddr" name="memAddr" readonly>
-                  <button type="button" class="btn btn-small">검색</button>
+                  <input 
+                    type="text" 
+                    class="input" 
+                    id="memAddr" 
+                    name="memAddr" 
+                    onclick="searchPostCode()"
+                    readonly
+                  >
+                  <button 
+                    type="button" 
+                    class="btn btn-small" 
+                    onclick="searchPostCode()">검색</button>
                 </div>
                 <input type="text" class="input" id="addrDetail" name="addrDetail">
               </div>
