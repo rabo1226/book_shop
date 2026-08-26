@@ -37,7 +37,7 @@ const checkDuplicate = () => {
   }
 
   axios
-  .get(`/member/check-id?memId=${memId}`)
+  .get(`member-api/check-id?memId=${memId}`)
   .then((response) => {
     // alert(response.data);
     //중복이면 p태그 삽입!
@@ -124,3 +124,67 @@ const join = () => {
     //document.querySelector('#join-form').submit();
   }
 }
+
+//우편 검색 버튼 누르면 주소검샐 기능 실현 (카카오 우편API)
+const openPost = () => {
+  new kakao.Postcode({
+    oncomplete: function(data) {
+      document.querySelector('input[name="memAddr"]').value = data.roadAddress;
+    }
+  }).open();
+}
+
+//로그인 유효성 검사  -> 성공 시 return true;
+const loginValidate = (memId, memPw) => {
+  let result = true;
+
+  //유효성 결과 문구 입력 p 태그
+  const pTag = document.querySelector('#login-modal #pw_p');
+
+  if(memId === '' ||  memPw === ''){
+    pTag.textContent = '아이디 또는 비밀번호를 입력하지 않았습니다.';
+    result = false;
+  }
+  return result;
+}
+
+//로그인 버튼을 누르면 실행 함수
+const login = () => {
+  //유효성 검사 통과 시 비동기 방식 로그인
+
+    //document.querySelector('#login-form').submit(); 동기 방식
+
+    //입력한 아이디, 비밀번호
+    const memId = document.querySelector('#login-modal input[name="memId"]').value;
+    const memPw = document.querySelector('#login-modal input[name="memPw"]').value;
+
+    //유효성 검사
+    const result = loginValidate(memId, memPw);
+    
+  if(result){
+    axios
+    .get(`/member-api/login?memId=${memId}&memPw=${memPw}`)
+    .then((response) => {
+      //로그인 실패
+      console.log(response.data);
+      if(response.data === ''){
+        document.querySelector('#login-modal #pw_p').textContent = '아이디 또는 비밀번호를 잘못 입력했습니다.';
+      }
+      else{
+        if(response.data.memRole === 'USER'){
+          //일반회원 -> 도서목록 페이지 이동
+          location.href='/book/list';
+        }
+        else{
+          //관리자 -> 도서등록 페이지 이동
+          location.href=`/admin/book-form?memId=${memId}`;
+        }
+      }
+    })
+    .catch((error) => {
+      console.log('로그인 중 오류 발생!');
+      console.log(error);
+    });
+  }
+}
+

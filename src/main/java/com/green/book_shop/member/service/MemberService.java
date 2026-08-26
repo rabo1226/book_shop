@@ -21,5 +21,10 @@ public class MemberService {
     return result != null;
   }
 
+  //로그인 기능
+  public MemberDTO login(MemberDTO memberDTO){
+   return memberMapper.login(memberDTO);
+  }
+
 
 }

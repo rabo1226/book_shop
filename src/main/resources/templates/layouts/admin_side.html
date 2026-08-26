@@ -3,7 +3,65 @@
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
   <th:block th:fragment="sideFragment">
-    <p>관리자 사이드</p>
+    <div class="side-content">
+      <div class="side1">
+        <ul> 
+          <li>
+            <span>
+              <i class="bi bi-book"></i>
+            </span>
+            도서관리
+          </li>
+          <li>
+            <a href="">카테고리 관리</a>
+          </li>
+          <li>
+            <a href="">도서등록 관리</a>
+          </li>
+          <li>
+            <a href="">도서정보 관리</a>
+          </li>
+        </ul>
+      </div>
+      <div class="side2">
+        <ul>
+          <li>
+            <span>
+              <i class="bi bi-currency-bitcoin"></i>
+            </span>
+            매출관리
+          </li>
+          <li>
+            <a href="">최근매출 정보</a>
+          </li>
+          <li>
+            <a href="">주간매출 정보</a>
+          </li>
+          <li>
+            <a href="">월간매출 정보</a>
+          </li>
+        </ul>
+      </div>
+      <div class="side3">
+        <ul>
+           <li>
+            <span>
+              <i class="bi bi-person-bounding-box"></i>
+            </span>
+            고객관리
+          </li>
+          <li>
+            <a href="">고객정보 조회</a>
+          </li>
+          <li>
+            <a href="">고객정보 수정리</a>
+          </li>
+          <li>
+            <a href="">VIP 관리</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </th:block>
 
 </html>

@@ -1,20 +1,23 @@
 .admin-container{
   width: 100%;
+  height: 100vh;
 }
 
-
 .admin-header{
+  height: 13%;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+  /* border: 3px solid violet; */
 }
 
 .admin-main{
   display: flex;
 }
 .admin-side{
-  width: 20%;
+  width: 15%;
   border-right: 1px solid lightgray;
+  /* border-right: 1px solid red; */
 }
 .admin-content{
-  width: 80%;
+  width: 85%;
 }

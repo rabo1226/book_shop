@@ -5,7 +5,7 @@
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.book_shop.member.mapper.MemberMapper">
   <resultMap id="mem" type="com.green.book_shop.member.dto.MemberDTO">
-    <id     column="MEM_ID" property="memID"/>
+    <id     column="MEM_ID" property="memId"/>
     <result column="MEM_PW" property="memPw"/>
     <result column="MEM_NAME" property="memName"/>
     <result column="MEM_TEL" property="memTel"/>
@@ -44,6 +44,16 @@
       MEM_ID
     FROM SHOP_MEMBER
     WHERE MEM_ID = #{memId}
+  </select>
+
+  <!--로그인 가능 여부 쿼리-->
+  <select id="login" resultMap="mem">
+    SELECT
+      MEM_ID
+      , MEM_ROLE
+    FROM SHOP_MEMBER
+    WHERE MEM_ID = #{memId}
+    AND MEM_PW = #{memPw}
   </select>
 
 

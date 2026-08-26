@@ -3,7 +3,21 @@
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
   <th:block th:fragment="headerFragment">
-    <p>관리자 헤더</p>
+    <div class="login-header">
+      <ul class="login-info-div">
+        <li>[[${memId}]]님 반갑습니다.</li>
+        <li>
+          <a>logout</a>
+        </li>
+      </ul>
+      <div class="header-logo">
+        <div class="logo-div">
+          <img src="/images/logo_ver.png" class="logo">
+        </div>
+        <h3>관리자 페이지</h3>
+      </div>
+    </div>
+   
   </th:block>
 
 </html>
