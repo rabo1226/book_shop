@@ -65,3 +65,7 @@
   gap: 5px;
   margin-bottom: 5px;
 }
+
+.modal-content > input {
+  margin-bottom: 10px;
+}

@@ -10,4 +10,7 @@ public interface MemberMapper {
 
   //id중복검사 쿼리 실행
   String isDuplicateId(String memId);
+
+  //login 가능 여부 확인
+  MemberDTO checkLogin(MemberDTO memberDTO);
 }

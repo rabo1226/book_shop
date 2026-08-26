@@ -26,4 +26,5 @@ public class MemberDTO {
   public void setMemTel(){
     memTel = memTel1 + "-" +  memTel2 +  "-"  + memTel3;
   }
+
 }

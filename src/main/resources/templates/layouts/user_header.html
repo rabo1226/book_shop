@@ -36,12 +36,18 @@
             </span>
           </div>
           <div class="modal-content">
-            <p class="common-text">아이디</p>
-            <input type="text" class="input">
-            <p class="common-text">비밀번호</p>
-            <input type="password" class="input">
-          </div>
-            <button type="button" class="btn btn-large">로그인</button>
+            <form action="/member/login" method="post">
+              <th:block th:if="${loginInfo == null}">
+                <p class="common-text">아이디</p>
+                <input type="text" class="input" name="memId">
+                <p id="name_p" class="validate-p invalid"></p>
+                <p class="common-text">비밀번호</p>
+                <input type="password" class="input" name="memPw">
+                <p id="pw_p" class="validate-p invalid"></p>       
+              </th:block>
+            </div>
+              <button type="button" class="btn btn-large" onclick="login()" id="login-btn">로그인</button>
+            </form>
         </div>
       </div>
       

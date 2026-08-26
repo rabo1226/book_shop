@@ -21,5 +21,11 @@ public class MemberService {
     return result != null;
   }
 
+  //로그인 가능여부 확인!
+  public MemberDTO checkLogin(MemberDTO memberDTO){
+    MemberDTO loginInfo = memberMapper.checkLogin(memberDTO);
+    return loginInfo;
+  }
+
 
 }

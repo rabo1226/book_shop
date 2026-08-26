@@ -120,8 +120,9 @@ const join = () => {
   console.log(validate_result);
   if(validate_result){
     console.log('회원가입 실행');
+    alert('회원가입 완료!');
     //submit
-    //document.querySelector('#join-form').submit();
+    document.querySelector('#join-form').submit();
   }
 }
 
@@ -142,3 +143,50 @@ const searchPostCode = () => {
     }
    }).open();
 }
+
+//로그인 기능! 비동기-> header oo님 반갑습니다. 띄우기!!!
+const login = () => {
+  //아아디, 비밀번호
+  const memId = document.querySelector('.modal-content input[name="memId"]').value;
+  const memPw = document.querySelector('.modal-content input[name="memPw"]').value;
+  
+  //로그인 버튼을 누르면 id, 비밀번호 일치여부를 확인! (비동기)
+  // axios
+  // .post('/member/login', {memId:memId, memPw:memPw})
+  // .then((response) => {
+  //   console.log(response.data);
+  // })
+  // .catch((error) => {
+  //   console.log('로그인 실패!');
+  //   console.log(error);
+  // });
+
+  //로그인 버튼 누르면 동기 실행 함수 로그인 정보를 가지고 확인 먼저 한다!
+  check();
+  const login_btn = document.querySelector('#login-btn');
+
+  if(check){
+    document.querySelector('form').submit();
+  }
+
+}
+
+
+//아이디 비밀번호 입력이 된 후 
+const check = () => {
+  let result = true;
+  //아아디, 비밀번호
+  const memId = document.querySelector('.modal-content input[name="memId"]').value;
+  const memPw = document.querySelector('.modal-content input[name="memPw"]').value;
+  
+  if(memId === ''){
+    document.querySelector('#name_p').textContent = '아이디를 입력하세요.'
+    result = false;
+  }
+  if(memPw === ''){
+    document.querySelector('#pw_p').textContent = '비밀번호를 입력하세요.'
+    result = false;
+  }
+  return result;
+}
+
