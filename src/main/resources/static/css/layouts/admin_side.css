@@ -3,15 +3,13 @@
 }
 .side-content > div{
   margin-bottom: 20px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* padding-left: 20px; */
 }
 
-.side-content ul{width: 100%; border: 1px solid yellow;}
-
-.side-content ul > li{
-  text-align: center;
-  border: 1px solid violet;
+.side-content ul{
+  width: 100%; 
+  padding-left: 90px;
 }
 
 .side-content ul > li:nth-child(1){
@@ -24,15 +22,23 @@
 .side-content li:nth-child(2) > a,
 .side-content li:nth-child(3) > a,
 .side-content li:nth-child(4) > a{
+  padding-left: 27px;
   margin: 10px 0px;
   color: lightgray;
+}
+
+/* 왜...li전체 색상 변경 안되는거지? */
+.side-content li:nth-child(2) > a:hover,
+.side-content li:nth-child(3) > a:hover,
+.side-content li:nth-child(4) > a:hover{
+  color: orange;
 }
 
 .side-content li:nth-child(2):hover,
 .side-content li:nth-child(3):hover,
 .side-content li:nth-child(4):hover{
   color: orange;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 
 .side-content span{

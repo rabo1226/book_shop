@@ -13,4 +13,10 @@ public class MainController {
     return "redirect:/book/list";
   }
 
+  //로그아웃
+  @GetMapping("/logout")
+  public String logout(){
+    return "redirect:/";
+  }
+
 }

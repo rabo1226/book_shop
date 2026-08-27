@@ -10,7 +10,83 @@
 
 <!--아래 block에 html 코드 작성-->
 <th:block layout:fragment="content">
-  <p>안녕</p>
+  <div class="book-form">
+    <div class="category">
+      <h3 class="logo-degin">카테고리 등록</h3>
+      <div class="reg-category-div">
+        <p>카테고리명</p>
+        <input type="text" name="categoryName" id="">
+        <button type="button" class="btn btn-small">등록</button>
+      </div>
+      <div>
+        <table class="c-table">
+          <colgroup>
+            <col width="7%">
+            <col width="20%">
+            <col width="*%">
+            <col width="25%">
+          </colgroup>
+          <thead>
+            <tr>
+              <td>No</td>
+              <td>카테고리번호</td>
+              <td>카테고리명</td>
+              <td>삭제</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each=" category, state : ${categoryList}" >
+              <td th:text="${#lists.size(categoryList) - state.index}"></td>
+              <td th:text="${category.categoryNo}"></td>
+              <td th:text="${category.categoryName}"></td>
+              <td>
+                <button type="button" class="btn btn-nomal">삭제</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="book-reg-form">
+      <form action="/book/reg-book" method="post">
+        <div class="book-form-div">
+          <h3 class="logo-degin">도서등록</h3>
+          <div>
+            <p>카테고리</p>
+            <select name="categoryNo" id="" class="input">
+              <option value="">선택</option>
+              <option th:value="${category.categoryNo}" th:each=" category : ${categoryList}" th:text="${category.categoryName}"></option>
+            </select>
+          </div>
+          <div>
+            <p>도서명</p>
+            <input type="text" name="bookName" class="input">
+            <p id="book-p" class="validate-p invalid"></p>
+          </div>
+          <div>
+            <p>가격</p>
+            <input type="text" name="bookPrice" id="" class="input">
+          </div>
+          <div>
+            <p>저자</p>
+            <input type="text" name="author" id="" class="input">
+            <p id="author-p" class="validate-p invalid"></p>
+          </div>
+          <div>
+            <p>재고</p>
+            <input type="text" name="stock" id="" class="input">
+          </div>
+          <div>
+            <p>도서소개</p>
+            <textarea name="bookInfo" id="" cols="10" rows="10" class="input"></textarea>
+          </div>
+          <div>
+            <button type="button" class="btn btn-large" onclick="regBook()">도서등록</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </th:block>
 
 <!--이 곳에 script 태그로 js파일 연결하는 코드 작성-->

@@ -177,7 +177,7 @@ const login = () => {
         }
         else{
           //관리자 -> 도서등록 페이지 이동
-          location.href=`/admin/book-form?memId=${memId}`;
+          location.href=`/admin/`;
         }
       }
     })

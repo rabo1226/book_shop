@@ -5,9 +5,9 @@
   <th:block th:fragment="headerFragment">
     <div class="login-header">
       <ul class="login-info-div">
-        <li>[[${memId}]]님 반갑습니다.</li>
+        <li>[[${session.loginInfo.memId}]]님 반갑습니다.</li>
         <li>
-          <a>logout</a>
+          <a href="/logout">logout</a>
         </li>
       </ul>
       <div class="header-logo">

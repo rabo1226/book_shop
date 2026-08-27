@@ -1,14 +1,45 @@
 package com.green.book_shop.book.controller;
 
+import com.green.book_shop.book.dto.BookDTO;
+import com.green.book_shop.book.service.BookService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping("/book")
+@RequiredArgsConstructor
 @Controller
 public class BookController {
+  private final BookService bookService;
 
   //도서 목록 페이지
-  @GetMapping("/book/list")
+  @GetMapping("/list")
   public String bookList(){
     return "pages/book/book_list";
   }
+
+  @GetMapping("/book-form")
+  public String bookForm(Model model){
+    model.addAttribute("categoryList", bookService.selectCategory());
+    System.out.println( bookService.selectCategory());
+    return "pages/admin/book_form";
+  }
+
+  //등록버튼을 누르면 도서 정보를 가져와서 등록
+  @PostMapping("/reg-book")
+  public String regBook(BookDTO bookDTO){
+    System.out.println("\n입력된 도서 : " + bookDTO);
+    bookService.regBook(bookDTO);
+    return "redirect:/book/book-form";
+  }
+
+  @GetMapping("book-category")
+  public String bookCategory(){
+    return "pages/admin/book-category";
+  }
+
+
 }

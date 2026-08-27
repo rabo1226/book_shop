@@ -56,10 +56,6 @@
     AND MEM_PW = #{memPw}
   </select>
 
-
-
-
-	
 </mapper>
 
 

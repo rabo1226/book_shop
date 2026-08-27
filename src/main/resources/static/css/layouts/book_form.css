@@ -1,0 +1,51 @@
+.book-form{
+ display: flex;
+ gap: 10px;
+}
+
+.category{
+  width: 50%;
+  margin: 50px auto;
+  padding: 30px;
+  border-right: 1px solid rgb(211, 211, 211, 0.4);
+  gap: 20px;
+}
+
+.reg-category-div{
+  display: flex;
+  gap: 5px;
+  border: 1px solid yellow;
+}
+
+
+.c-table{
+  width: 100%;
+}
+
+.c-table td{
+  border: 1px solid red;
+}
+
+.book-reg-form{
+  width: 50%;
+}
+
+.book-form-div{
+  border: 3px solid rgb(255, 165, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  margin: 50px auto;
+  width: 300px;
+}
+
+.book-form-div > div >  p{
+  margin-bottom: 5px;
+}
+
+.book-form-div > div > textarea{
+  scrollbar-width: none;
+  resize: none;
+}
