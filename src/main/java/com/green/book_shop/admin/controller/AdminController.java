@@ -16,7 +16,9 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
+@RequiredArgsConstructor
 public class AdminController {
+  private final BookService bookService;
 
   //대시보드 페이지(관리자 메인 페이지)
   @GetMapping("/")
@@ -27,6 +29,13 @@ public class AdminController {
     return "admin/dash_board";
   }
 
+  //도서 등록 페이지로 이동 (카테고리 목록 조회 + html 전달)
+  @GetMapping("/book-form")
+  public String bookForm(Model model){
+    model.addAttribute("categoryList", bookService.selectCategory());
+    //System.out.println( bookService.selectCategory());
+    return "pages/admin/book_form";
+  }
 
 }
 

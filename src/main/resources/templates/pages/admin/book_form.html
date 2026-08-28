@@ -48,15 +48,16 @@
       </div>
     </div>
     <div class="book-reg-form">
-      <form action="/book/reg-book" method="post">
+      <form action="/book/reg-book" method="post" id="book-form">
         <div class="book-form-div">
-          <h3 class="logo-degin">도서등록</h3>
+          <h3 class="logo-degin under-bar">도서등록</h3>
           <div>
             <p>카테고리</p>
             <select name="categoryNo" id="" class="input">
               <option value="">선택</option>
               <option th:value="${category.categoryNo}" th:each=" category : ${categoryList}" th:text="${category.categoryName}"></option>
             </select>
+            <p id="category-p" class="validate-p invalid"></p>            
           </div>
           <div>
             <p>도서명</p>
@@ -66,6 +67,7 @@
           <div>
             <p>가격</p>
             <input type="text" name="bookPrice" id="" class="input">
+            <p id="price-p" class="validate-p invalid"></p>            
           </div>
           <div>
             <p>저자</p>
@@ -75,10 +77,12 @@
           <div>
             <p>재고</p>
             <input type="text" name="stock" id="" class="input">
+            <p id="stok-p" class="validate-p invalid"></p>            
           </div>
           <div>
             <p>도서소개</p>
             <textarea name="bookInfo" id="" cols="10" rows="10" class="input"></textarea>
+            <p id="bookInfo-p" class="validate-p invalid"></p>            
           </div>
           <div>
             <button type="button" class="btn btn-large" onclick="regBook()">도서등록</button>

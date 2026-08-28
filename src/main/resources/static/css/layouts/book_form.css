@@ -1,6 +1,7 @@
 .book-form{
- display: flex;
- gap: 10px;
+  display: flex;
+  gap: 10px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .category{
@@ -30,6 +31,11 @@
   width: 50%;
 }
 
+.under-bar{
+  border-bottom: 3px solid orange;
+  padding-bottom: 5px;
+}
+
 .book-form-div{
   border: 3px solid rgb(255, 165, 0, 0.2);
   border-radius: 15px;
@@ -39,9 +45,11 @@
   padding: 30px;
   margin: 50px auto;
   width: 300px;
+  /* background-color: rgb(250, 235, 215, 0.7); */
 }
 
 .book-form-div > div >  p{
+
   margin-bottom: 5px;
 }
 

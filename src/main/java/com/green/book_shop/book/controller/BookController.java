@@ -21,13 +21,6 @@ public class BookController {
     return "pages/book/book_list";
   }
 
-  @GetMapping("/book-form")
-  public String bookForm(Model model){
-    model.addAttribute("categoryList", bookService.selectCategory());
-    System.out.println( bookService.selectCategory());
-    return "pages/admin/book_form";
-  }
-
   //등록버튼을 누르면 도서 정보를 가져와서 등록
   @PostMapping("/reg-book")
   public String regBook(BookDTO bookDTO){
