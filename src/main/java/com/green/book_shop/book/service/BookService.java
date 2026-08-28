@@ -23,6 +23,11 @@ public class BookService {
     bookMapper.regBook(bookDTO);
   }
 
+  //카테고리 등록 기능
+  public void insertCategory(BookCategoryDTO bookCategoryDTO){
+    bookMapper.insertCategory(bookCategoryDTO);
+  }
+
 
 
 }

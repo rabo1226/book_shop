@@ -12,12 +12,14 @@
 <th:block layout:fragment="content">
   <div class="book-form">
     <div class="category">
-      <h3 class="logo-degin">카테고리 등록</h3>
-      <div class="reg-category-div">
-        <p>카테고리명</p>
-        <input type="text" name="categoryName" id="">
-        <button type="button" class="btn btn-small">등록</button>
-      </div>
+      <h3 class="logo-degin under-bar">카테고리 관리</h3>
+      <form action="/admin/reg-category" method="post" id="reg-category">
+        <div class="reg-category-div">
+          <p>카테고리명</p>
+          <input type="text" name="categoryName">
+          <button type="button" class="btn btn-small" onclick="regCategory()">등록</button>
+        </div>
+      </form>
       <div>
         <table class="c-table">
           <colgroup>
@@ -53,8 +55,8 @@
           <h3 class="logo-degin under-bar">도서등록</h3>
           <div>
             <p>카테고리</p>
-            <select name="categoryNo" id="" class="input">
-              <option value="">선택</option>
+            <select name="categoryNo" class="input">
+              <option value="" selected>선택</option>
               <option th:value="${category.categoryNo}" th:each=" category : ${categoryList}" th:text="${category.categoryName}"></option>
             </select>
             <p id="category-p" class="validate-p invalid"></p>            

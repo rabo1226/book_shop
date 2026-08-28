@@ -24,13 +24,13 @@
     SELECT
       CATEGORY_NO
       , CATEGORY_NAME
-    FROM BOOK_CATEGORY;
+    FROM BOOK_CATEGORY
+    ORDER BY CATEGORY_NO DESC
   </select>
 
   <!--도서등록-->
   <insert id="regBook">
-    INSERT INTO
-    SHOP_BOOK (
+    INSERT INTO SHOP_BOOK (
       BOOK_NAME
       , AUTHOR
       , BOOK_PRICE
@@ -44,6 +44,15 @@
       , #{stock}
       , #{bookInfo}
       , #{categoryNo}
+    )
+  </insert>
+
+  <!--카테고리 등록-->
+  <insert id="insertCategory">
+    INSERT INTO BOOK_CATEGORY (
+      CATEGORY_NAME
+    ) VALUES(
+      #{categoryName}
     )
   </insert>
 

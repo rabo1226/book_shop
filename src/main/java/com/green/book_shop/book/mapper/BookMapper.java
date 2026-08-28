@@ -13,4 +13,7 @@ public interface BookMapper {
 
   //도서 등록
   void regBook(BookDTO bookDTO);
+
+  //카테고리 등록
+  void insertCategory(BookCategoryDTO bookCategoryDTO);
 }

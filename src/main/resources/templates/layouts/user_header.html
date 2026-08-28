@@ -5,12 +5,21 @@
   <th:block th:fragment="headerFragment">
     <div class="header-container">
       <ul class="user-menu">
-        <li>
-           <span onclick="openModal('#login-modal')" class="click">Login</sapn>
-        </li>
-        <li>
-          <span onclick="openModal('#join-modal')" class="click">Join</span>
-        </li>
+        <th:block th:if="${session.loginInfo != null}">
+          <li th:text="${session.loginInfo.memId}">
+          </li>
+          <li>
+            <a href="/member/logout">logout</a>
+          </li>
+        </th:block>
+        <th:block th:if="${session.loginInfo == null}">
+          <li>
+             <span onclick="openModal('#login-modal')" class="click">Login</sapn>
+          </li>
+          <li>
+            <span onclick="openModal('#join-modal')" class="click">Join</span>
+          </li>
+        </th:block>
       </ul>
       <div class="menu-div">
         <div class="logo-div">

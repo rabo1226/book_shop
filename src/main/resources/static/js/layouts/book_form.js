@@ -26,23 +26,24 @@ const bookCheck = () => {
   }
   //가격 : 필수입력, 양수만 가능
    if(!priceRegex.test(bookPrice)){
-    document.querySelector('#price-p').textContent = '';
+    document.querySelector('#price-p').textContent = '필수입력입니다.';
     data = false;
    }
 
   //재고 : 필수입력, 양수만 가능
   if(!stockRegex.test(stock)){
-    document.querySelector('#stok-p').textContent = '2121';
+    document.querySelector('#stok-p').textContent = '필수입력입니다.';
     data = false;
   }
   //책 소개 : 필수입력, 최대 100글자
   if(!introRegex.test(bookInfo)){
-    document.querySelector('#bookInfo-p').textContent = '122121';
+    document.querySelector('#bookInfo-p').textContent = '도서소개는 필수입력입니다.';
     data = false;
   }
 
+  //카테고리 필수 선택
   if(category === ''){
-    document.querySelector('#category-p').textContent = '필수선택입니다.';
+    document.querySelector('#category-p').textContent = '카테고리를 선택하세요.';
     data = false;
   }
 
@@ -61,4 +62,16 @@ const regBook = () => {
       document.querySelector('#book-form').submit();
     }
   }  
+}
+
+//카테고리 등록 버튼 클릭 시 실행함수
+const regCategory = () => {
+  const cName = document.querySelector('input[name="categoryName"]').value;
+
+  //2글자 이상
+  const categoryNameRegex = /^.{2,30}$/;
+  if(categoryNameRegex.test(cName)){
+    //alert('카테고리를 등록합니다.');
+    document.querySelector('#reg-category').submit();
+  }
 }

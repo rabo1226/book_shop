@@ -2,11 +2,13 @@ package com.green.book_shop.member.controller;
 
 import com.green.book_shop.member.dto.MemberDTO;
 import com.green.book_shop.member.service.MemberService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/member")
+@RequestMapping("/member")
 @RequiredArgsConstructor
 @Controller
 public class MemberController {
@@ -21,6 +23,14 @@ public class MemberController {
     System.out.println("\nmemDTO" + memberDTO);
 
     memberService.insertMember(memberDTO);
+    return "redirect:/";
+  }
+
+  //로그아웃
+  @GetMapping("/logout")
+  public String logout(HttpServletRequest request){
+    HttpSession session = request.getSession();
+    session.invalidate();
     return "redirect:/";
   }
 

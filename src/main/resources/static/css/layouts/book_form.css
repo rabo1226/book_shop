@@ -5,7 +5,7 @@
 }
 
 .category{
-  width: 50%;
+  width: 40%;
   margin: 50px auto;
   padding: 30px;
   border-right: 1px solid rgb(211, 211, 211, 0.4);
@@ -14,13 +14,19 @@
 
 .reg-category-div{
   display: flex;
-  gap: 5px;
-  border: 1px solid yellow;
+  justify-content: center;
+  gap: 10px;
+  /* border: 1px solid yellow; */
 }
 
+.reg-category-div > p,
+.reg-category-div > input{
+  width: 40%;
+}
 
 .c-table{
   width: 100%;
+  margin-top: 10px;
 }
 
 .c-table td{
@@ -28,12 +34,13 @@
 }
 
 .book-reg-form{
-  width: 50%;
+  width: 60%;
 }
 
 .under-bar{
   border-bottom: 3px solid orange;
   padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .book-form-div{
@@ -49,7 +56,6 @@
 }
 
 .book-form-div > div >  p{
-
   margin-bottom: 5px;
 }
 

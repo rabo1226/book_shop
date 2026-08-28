@@ -1,5 +1,7 @@
 package com.green.book_shop;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -13,10 +15,5 @@ public class MainController {
     return "redirect:/book/list";
   }
 
-  //로그아웃
-  @GetMapping("/logout")
-  public String logout(){
-    return "redirect:/";
-  }
 
 }
