@@ -23,6 +23,12 @@ public class BookService {
     bookMapper.regBook(bookDTO);
   }
 
+  //카테고리 중복 확인 기능 (중복 return true)
+  public boolean checkCategoryName(String categoryName){
+    String cateName = bookMapper.cName(categoryName);
+    return cateName != null;
+  }
+
   //카테고리 등록 기능
   public void insertCategory(BookCategoryDTO bookCategoryDTO){
     bookMapper.insertCategory(bookCategoryDTO);

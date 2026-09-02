@@ -25,6 +25,9 @@
       CATEGORY_NO
       , CATEGORY_NAME
     FROM BOOK_CATEGORY
+<!--    <if test=' categoryName != null and !categoryName.equals("") '>-->
+<!--      AND CATEGORY_NAME = #{categoryName}-->
+<!--    </if>-->
     ORDER BY CATEGORY_NO DESC
   </select>
 
@@ -56,6 +59,13 @@
     )
   </insert>
 
+  <!--카데고리 중복검사-->
+  <select id="cName" resultType="String">
+    SELECT
+      CATEGORY_NAME
+    FROM BOOK_CATEGORY
+    WHERE CATEGORY_NAME = #{categoryName}
+  </select>
 
 
 	

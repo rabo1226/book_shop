@@ -64,14 +64,41 @@ const regBook = () => {
   }  
 }
 
-//카테고리 등록 버튼 클릭 시 실행함수
+//카테고리 등록 버튼 클릭 시 실행함수(동기방식 쿼리 실행)
 const regCategory = () => {
+
+ //추가할 카테고리명
   const cName = document.querySelector('input[name="categoryName"]').value;
+
+ //미입력
+  if(cName === ''){
+    document.querySelector('#cName-p').textContent = '카테고리명을 입력하지 않았습니다.';
+    return;
+  }
+
+  //중복검사(비동기)
+  axios
+  .get(`/admin-api/check-category-Name?cName=${cName}`)
+  .then((response) => {
+    const result = response.data;
+    alert(result);
+  })
+  .catch((error) => {
+    console.log('카테고리 중복 확인 중 오류!!');
+    console.log(error);
+  });
 
   //2글자 이상
   const categoryNameRegex = /^.{2,30}$/;
-  if(categoryNameRegex.test(cName)){
+  if(!categoryNameRegex.test(cName)){
+    document.querySelector('#cName-p').textContent = '2글자 이상 입력하세요.'
+    data = false;
+  }
+
+
+  const result = checkCategory();
+  if(result){
     //alert('카테고리를 등록합니다.');
-    document.querySelector('#reg-category').submit();
+      //document.querySelector('#reg-category').submit();
   }
 }

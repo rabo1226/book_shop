@@ -1,6 +1,6 @@
 .book-form{
   display: flex;
-  gap: 10px;
+  gap: 16px;
   /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
@@ -8,20 +8,31 @@
   width: 40%;
   margin: 50px auto;
   padding: 30px;
-  border-right: 1px solid rgb(211, 211, 211, 0.4);
   gap: 20px;
+  border: 4px solid rgb(255, 165, 0);
+  border-radius: 15px;
+  margin-left: 50px;
 }
 
 .reg-category-div{
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  /* border: 1px solid yellow; */
+  gap: 8px;
+  margin: 20px 0px;
 }
 
-.reg-category-div > p,
-.reg-category-div > input{
-  width: 40%;
+.reg-category-div > p{
+  width: 15%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-category-div > input[name="categoryName"]{
+  width: 70%;
+}
+
+.reg-category-div > button{
+  width: 15%;
 }
 
 .c-table{
@@ -29,8 +40,19 @@
   margin-top: 10px;
 }
 
-.c-table td{
-  border: 1px solid red;
+.c-table > thead > tr > td{
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 6px 0px;
+  text-align: center;
+}
+.c-table > tbody > tr > td{
+  text-align: center;
+  padding: 3px 0px;
+  background-color: rgb(255, 228, 196, 0.2);
+  border-top: 1px solid white;
 }
 
 .book-reg-form{
@@ -44,14 +66,14 @@
 }
 
 .book-form-div{
-  border: 3px solid rgb(255, 165, 0, 0.2);
+  border: 4px solid rgb(255, 165, 0);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 30px;
   margin: 50px auto;
-  width: 300px;
+  width: 350px;
   /* background-color: rgb(250, 235, 215, 0.7); */
 }
 
@@ -62,4 +84,8 @@
 .book-form-div > div > textarea{
   scrollbar-width: none;
   resize: none;
+}
+
+.check-p{
+  text-align: center;
 }

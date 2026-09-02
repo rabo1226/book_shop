@@ -187,10 +187,11 @@ a{
   width: 100%;
   /* border: 1px solid orange; */
   border: none;
-  border-bottom: 1px solid rgb(255, 165, 0, 0.7);
+  border-bottom: 3px solid rgb(255, 165, 0, 0.7);
   /* border-radius: 4px; */
   /* border-bottom: 2px solid orange; */
   /* margin-bottom: 10px; */
+  background-color: ivory;
 }
 
 .input:focus{
@@ -204,3 +205,54 @@ a{
 .invalid{color: rgb(220, 53, 69);}
 
 .valid{color: rgb(25, 135, 84);}
+
+/* --------------배경색상-------------- */
+body{
+  background-color: ivory;
+}
+
+/* --------------테이블(목록) 공동디자인-------------- */
+/* 테이블 공통 디자인 각 별로 적용하기!!! */
+.list-table{
+  width: 100%;
+}
+
+.list-table td{
+  padding: 6px;
+  vertical-align: middle;
+}
+
+.list-table.bg > thead > tr{
+  background-color: lightpink;
+  color: white;
+  text-align: center;
+  border-top: 1px solid khaki;
+  border-bottom: 1.5px solid khaki;
+}
+
+.list-table > thead > tr{
+  text-align: center;
+  border-top: 1px solid khaki;
+  border-bottom: 1.5px solid khaki;
+}
+
+.list-table > tbody > tr{
+  border-bottom: 1.5px solid khaki;
+}
+
+.list-table.stripe > tbody > tr:nth-child(even) {
+  background-color: lightgrey;
+}
+
+.c-table.hover > tbody > tr:hover {
+  background-color: bisque;
+}
+
+.list-table tr{
+  background-color: white;
+}
+
+.list-table.center > tbody > tr {
+  text-align: center;
+}
+

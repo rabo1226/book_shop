@@ -16,17 +16,18 @@
       <form action="/admin/reg-category" method="post" id="reg-category">
         <div class="reg-category-div">
           <p>카테고리명</p>
-          <input type="text" name="categoryName">
+          <input type="text" name="categoryName" class="input">
           <button type="button" class="btn btn-small" onclick="regCategory()">등록</button>
         </div>
+        <p id="cName-p" class="validate-p invalid check-p"> &nbsp;</p>
       </form>
       <div>
-        <table class="c-table">
+        <table class="c-table bg hover">
           <colgroup>
-            <col width="7%">
-            <col width="20%">
+            <col width="16%">
+            <col width="26%">
             <col width="*%">
-            <col width="25%">
+            <col width="20%">
           </colgroup>
           <thead>
             <tr>
