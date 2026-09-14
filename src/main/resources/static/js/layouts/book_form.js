@@ -53,15 +53,15 @@ const bookCheck = () => {
 //도서 등록 버튼 클릭 시 실행함수
 const regBook = () => {
   
-  const check = confirm('도서 등록을 진행할까요?');
-  if(check){
-    const result = bookCheck();
+  //const check = confirm('도서 등록을 진행할까요?');
+  // if(check){
+    // const result = bookCheck();
 
-    if(result){
-      console.log('도서등록');
+    // if(result){
+      // console.log('도서등록');
       document.querySelector('#book-form').submit();
-    }
-  }  
+    // }
+  // }  
 }
 
 //카테고리 등록 버튼 클릭 시 실행함수(동기방식 쿼리 실행)

@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class BookDTO {
-  private long bookNo;
+  private Long bookNo;
   private String bookName;
   private String author;
-  private long bookPrice;
-  private long stock;
+  private Long bookPrice;
+  private Long stock;
   private String bookInfo;
-  private long categoryNo;
+  private Long categoryNo;
 }

@@ -17,3 +17,8 @@ server:
   servlet:
     session:
       tracking-modes: cookie
+
+#업로드 파일 저장 디렉토리
+file:
+  upload:
+    dir: D:\01-STUDY\dev\upload\

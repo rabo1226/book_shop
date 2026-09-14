@@ -19,6 +19,14 @@
     <result column="CATEGORY_NAME" property="categoryName"/>
   </resultMap>
 
+  <resultMap id="bookImg" type="com.green.book_shop.book.dto.BookImgDTO">
+    <id     column="IMG_NO" property="imgNo"/>
+    <result column="ORIGIN_FILE_NAME" property="originFileName"/>
+    <result column="ATTACHED_FILE_NAME" property="attachedFileName"/>
+    <result column="IS_MAIN" property="isMain"/>
+    <result column="BOOK_NO" property="bookNo"/>
+  </resultMap>
+
   <!--카테고리 조회-->
   <select id="selectCategory" resultMap="category">
     SELECT
@@ -34,14 +42,16 @@
   <!--도서등록-->
   <insert id="regBook">
     INSERT INTO SHOP_BOOK (
-      BOOK_NAME
+      BOOK_NO
+      , BOOK_NAME
       , AUTHOR
       , BOOK_PRICE
       , STOCK
       , BOOK_INFO
       , CATEGORY_NO
     ) VALUES (
-      #{bookName}
+      #{bookNo}
+      , #{bookName}
       , #{author}
       , #{bookPrice}
       , #{stock}
@@ -66,6 +76,22 @@
     FROM BOOK_CATEGORY
     WHERE CATEGORY_NAME = #{categoryName}
   </select>
+
+  <!--도서 이미지 등록-->
+  <insert id="insertBookImg">
+    INSERT INTO BOOK_IMAGE (
+      ORIGIN_FILE_NAME
+      , ATTACHED_FILE_NAME
+      , IS_MAIN
+      , BOOK_NO
+    ) VALUES(
+      #{originFileName}
+      , #{attacheFileName}
+      , #{isMain}
+      , #{bookNo}
+    )
+  </insert>
+
 
 
 	

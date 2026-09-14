@@ -51,7 +51,13 @@
       </div>
     </div>
     <div class="book-reg-form">
-      <form action="/book/reg-book" method="post" id="book-form">
+      <!-- 폼 태그로 문자 뿐 아니라 파일도 자바로 넘기려면 enctype="multipart/form-data" 추가!!!-->
+      <form 
+        action="/admin/reg-book" 
+        method="post" 
+        id="book-form" 
+        enctype="multipart/form-data"
+      >
         <div class="book-form-div">
           <h3 class="logo-degin under-bar">도서등록</h3>
           <div>
@@ -86,6 +92,14 @@
             <p>도서소개</p>
             <textarea name="bookInfo" id="" cols="10" rows="10" class="input"></textarea>
             <p id="bookInfo-p" class="validate-p invalid"></p>            
+          </div>
+          <div>
+            <P>대표 이미지</P>
+            <input type="file" name="mainImg">
+          </div>
+          <div>
+            <P>서브 이미지</P>
+            <input type="file" name="subImg">
           </div>
           <div>
             <button type="button" class="btn btn-large" onclick="regBook()">도서등록</button>
